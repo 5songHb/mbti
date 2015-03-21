@@ -9,4 +9,4 @@ SERVER.config.from_pyfile('settings.py')
 SERVER.register_blueprint(MBTI_BP)
 
 if __name__ == '__main__':
-    SERVER.run()
+    SERVER.run('0.0.0.0')
