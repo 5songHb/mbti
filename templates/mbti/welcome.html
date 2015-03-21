@@ -7,17 +7,30 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/welcome.css') }}" />
     </head>
     <body>
-        <div class="container">
-            <section class="main">
-                <a href="/home">
-                <h2 class="cs-text">
-                    <span class="cs-text-cut">Welcome</span>
-                    <span class="cs-text-mid">MBTI-TEST</span>
-                    <span class="cs-text-cut">Welcome</span>
-                </h2>
-                </a>
-            </section>
-        </div>
+        <a href="/home">
+            <div class="container">
+                <section class="main">
+                    <h2 class="cs-text">
+                        <span class="cs-text-cut">Welcome2</span>
+                        <span class="cs-text-mid">MBTI-TEST</span>
+                        <span class="cs-text-cut">Welcome2</span>
+                    </h2>
+                </section>
+                <div class="component">
+                    <ul class="grid">
+                        <li class="ot-letter-left"><span data-letter="M">M</span></li>
+                        <li class="ot-letter-top"><span data-letter="B">B</span></li>
+                        <li class="ot-letter-bottom"><span data-letter="T">T</span></li>
+                        <li class="ot-letter-right"><span data-letter="I">I</span></li>
+                        <li class="ot-letter-left"><span data-letter="-">-</span></li>
+                        <li class="ot-letter-bottom"><span data-letter="T">T</span></li>
+                        <li class="ot-letter-right"><span data-letter="E">E</span></li>
+                        <li class="ot-letter-top"><span data-letter="S">S</span></li>
+                        <li class="ot-letter-left"><span data-letter="T">T</span></li>
+                    </ul>
+                </div>
+            </div>
+        </a>
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.lettering.js') }}"></script>
         <script>
