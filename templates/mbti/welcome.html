@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Welcome to MBTI-TEST</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/welcome.css') }}" />
+    </head>
+    <body>
+        <div class="container">
+            <section class="main">
+                <a href="/home">
+                <h2 class="cs-text">
+                    <span class="cs-text-cut">Welcome</span>
+                    <span class="cs-text-mid">MBTI-TEST</span>
+                    <span class="cs-text-cut">Welcome</span>
+                </h2>
+                </a>
+            </section>
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.lettering.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $(".cs-text-cut").lettering('words');
+            });
+        </script>
+    </body>
+</html>
+

@@ -11,8 +11,6 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         {% block css %}
         {% endblock %}
-        {% block js %}
-        {% endblock %}
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="{{ url_for('static', filename='html5shiv.js') }}"></script>
@@ -72,12 +70,20 @@
         </div>
         <!--NAV BAR END-->
 
+        {% block container_top %}
+        {% endblock %}
         <div class="container">
         {% block container %}
         {% endblock %}
         </div>
+        {% block container_bottom %}
+        {% endblock %}
 
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
         <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        {% block js %}
+        {% endblock %}
     </body>
 </html>
