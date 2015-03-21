@@ -5,52 +5,66 @@
 {%endblock%}
 
 {% block container %}
-<div class="page-header">
+<div class="bs-docs-section">
+    <div class="content">
+        <svg viewBox="0 0 1000 300">
+
+            <!-- Symbol -->
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".4em">
+                    MBTI-TEST
+                </text>
+            </symbol>
+
+            <!-- Duplicate symbols -->
+            <use xlink:href="#s-text" class="text"></use>
+            <use xlink:href="#s-text" class="text"></use>
+            <use xlink:href="#s-text" class="text"></use>
+            <use xlink:href="#s-text" class="text"></use>
+            <use xlink:href="#s-text" class="text"></use>
+            <use xlink:href="#s-text" class="text"></use>
+
+            <!-- Clippath  with text -->
+            <clippath id="cp-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".4em" class="text--line">
+                    MBTI-TEST
+                </text>
+            </clippath>
+
+            <!-- Group for shadow -->
+            <g clip-path="url(#cp-text)" class="shadow">
+                <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
+            </g>
+
+            <!-- Group with clippath for text-->
+            <g clip-path="url(#cp-text)" class="colortext">
+                <!-- Animated shapes inside text -->
+                <rect width="100%" height="100%" class="anim-shape"></rect>
+                <rect width="80%" height="100%" class="anim-shape"></rect>
+                <rect width="60%" height="100%" class="anim-shape"></rect>
+                <rect width="40%" height="100%" class="anim-shape"></rect>
+                <rect width="20%" height="100%" class="anim-shape"></rect>
+            </g>
+
+            <!-- Transparent copy of text to keep patterned text selectable -->
+            <use xlink:href="#s-text" class="text--transparent"></use>
+
+        </svg>
+    </div>
+</div>
+
+<div class="bs-docs-section">
     <div class="row">
-        <div class="content">
-            <svg viewBox="0 0 1000 300">
+        <div class="col-lg-12">
+            <div class="bs-component">
+                <h2>MBTI测试前须知</h2>
+                <p>1、参加测试的人员请务必诚实、独立地回答问题，只有如此，才能得到有效的结果。</p>
+                <p>2、《性格分析报告》展示的是你的性格倾向，而不是你的知识、技能、经验。</p>
+                <p>3、MBTI提供的性格类型描述仅供测试者确定自己的性格类型之用，性格类型没有好坏，只有不同。每一种性格特征都有其价值和优点，也有缺点和需要注意的地方。清楚地了解自己的性格优劣势，有利于更好地发挥自己的特长，而尽可能的在为人处事中避免自己性格中的劣势，更好地和他人相处，更好地作重要的决策。</p>
+                <p>4、共93题；需时约18分钟。所有题目没有对错之分，请根据自己的实际情况选择。</p>
+只要你是认真、真实地填写了测试问卷，那么通常情况下你都能得到一个确实和你的性格相匹配的类型。希望你能从中或多或少地获得一些有益的信息。
 
-                <!-- Symbol -->
-                <symbol id="s-text">
-                    <text text-anchor="middle" x="50%" y="50%" dy=".2em">
-                        MBTI-TEST
-                    </text>
-                </symbol>
-
-                <!-- Duplicate symbols -->
-                <use xlink:href="#s-text" class="text"></use>
-                <use xlink:href="#s-text" class="text"></use>
-                <use xlink:href="#s-text" class="text"></use>
-                <use xlink:href="#s-text" class="text"></use>
-                <use xlink:href="#s-text" class="text"></use>
-                <use xlink:href="#s-text" class="text"></use>
-
-                <!-- Clippath  with text -->
-                <clippath id="cp-text">
-                    <text text-anchor="middle" x="50%" y="50%" dy=".2em" class="text--line">
-                        MBTI-TEST
-                    </text>
-                </clippath>
-
-                <!-- Group for shadow -->
-                <g clip-path="url(#cp-text)" class="shadow">
-                    <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
-                </g>
-
-                <!-- Group with clippath for text-->
-                <g clip-path="url(#cp-text)" class="colortext">
-                    <!-- Animated shapes inside text -->
-                    <rect width="100%" height="100%" class="anim-shape"></rect>
-                    <rect width="80%" height="100%" class="anim-shape"></rect>
-                    <rect width="60%" height="100%" class="anim-shape"></rect>
-                    <rect width="40%" height="100%" class="anim-shape"></rect>
-                    <rect width="20%" height="100%" class="anim-shape"></rect>
-                </g>
-
-                <!-- Transparent copy of text to keep patterned text selectable -->
-                <use xlink:href="#s-text" class="text--transparent"></use>
-
-            </svg>
+            </div>
         </div>
     </div>
 </div>
