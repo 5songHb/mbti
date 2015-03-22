@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 from flask import render_template
 from flask import Blueprint
+from flask import abort
 
 MBTI_BP = Blueprint('mbti', __name__)
 
@@ -24,10 +25,14 @@ def about():
     return render_template('mbti/about.html')
 
 
-@MBTI_BP.route('/personalities/')
-def personalities():
+@MBTI_BP.route('/personalities/', defaults={'page': 'index'})
+@MBTI_BP.route('/personalities/<page>/')
+def personalities(page):
     '''关于页面'''
-    return render_template('mbti/personalities.html')
+    try:
+        return render_template('mbti/personalities/%s.html' % page)
+    except:
+        abort(404)
 
 
 @MBTI_BP.route('/test/', methods=('GET, POST'))
