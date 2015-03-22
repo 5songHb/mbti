@@ -1,6 +1,6 @@
 .cs-text-about {
     width: 600px;
-    margin: 70px auto 30px;
+    margin: 90px auto 30px;
 }
 
 .cs-text-about:before,
@@ -122,4 +122,13 @@
     text-shadow:
         1px 1px 0 rgba(216,65,40,0.1),
         -1px -1px 0 rgba(37,166,164,0.1);
+}
+
+.about{
+    text-align: center;
+    font-size: bold;
+}
+
+.about p{
+    margin-top: 150px;
 }

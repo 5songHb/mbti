@@ -2,6 +2,7 @@
 {% block title %}首页{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/startbtn.css') }}">
 {%endblock%}
 
 {% block container %}
@@ -53,4 +54,9 @@
         </div>
     </div>
 </div>
+<a href="/test/" class="a-btn">
+    <span></span>
+    <span>Start</span>
+    <span>Go!</span>
+</a>
 {% endblock %}
