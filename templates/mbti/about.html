@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title%}关于本站{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{%endblock%}
+
+{% block container %}
+<div class="page-header">
+    <section class="main">
+        <h2 class="cs-text-about" id="cs-text-about">关于本站</h2>
+    </section>
+</div>
+<div class="bs-docs-section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bs-component">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.lettering.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $("#cs-text-about").lettering().children('span').wrap('<span />').parent().prepend('<span></span><span></span><span></span>');
+    });
+</script>
+{% endblock %}

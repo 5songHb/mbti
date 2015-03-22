@@ -5,7 +5,11 @@ body{
 	background-size: cover;
 }
 
+a{
+    text-decoration: none;
+}
 
+/*ub open*/
 .cs-text {
 	width: 645px;
 	margin: 120px auto 30px;
@@ -122,10 +126,8 @@ body{
 	position: relative;
 }
 
-a{
-    text-decoration: none;
-}
 
+/*type open*/
 .grid {
     margin: 0;
     padding: 0;
@@ -368,4 +370,3 @@ a{
         width: 100%;
     }
 }
-

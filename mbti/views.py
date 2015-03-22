@@ -12,10 +12,16 @@ def welcome():
     return render_template('mbti/welcome.html')
 
 
-@MBTI_BP.route('/home')
+@MBTI_BP.route('/home/')
 def home():
     '''这才是真正的首页'''
     return render_template('mbti/home.html')
+
+
+@MBTI_BP.route('/about/')
+def about():
+    '''关于页面'''
+    return render_template('mbti/about.html')
 
 
 @MBTI_BP.route('/test/', methods=('GET, POST'))
