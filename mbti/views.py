@@ -24,6 +24,12 @@ def about():
     return render_template('mbti/about.html')
 
 
+@MBTI_BP.route('/personalities/')
+def personalities():
+    '''关于页面'''
+    return render_template('mbti/personalities.html')
+
+
 @MBTI_BP.route('/test/', methods=('GET, POST'))
 def test():
     '''测试页面视图'''
