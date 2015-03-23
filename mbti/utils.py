@@ -35,7 +35,7 @@ def get_result(answers):
     types = [('E', 'I'), ('S', 'N'), ('T', 'F'), ('J', 'P')]
     answers = Counter(answer[-1] for answer in answers)
     if set(answers.keys()) - set(flatten(types)):
-        raise Exception('Types Error', 'answer type is not in types')
+        raise Exception('TypesError', 'answer type is not in types')
     result = ''.join(t1 if answers.get(t1, 0) > answers.get(t2, 0) else t2
                      for t1, t2 in types)
     return result
