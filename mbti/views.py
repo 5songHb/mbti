@@ -35,7 +35,7 @@ def personalities(page):
         abort(404)
 
 
-@MBTI_BP.route('/test/', methods=('GET, POST'))
+@MBTI_BP.route('/test/', methods=('GET', 'POST'))
 def test():
     '''测试页面视图'''
     return render_template('mbti/test.html')
