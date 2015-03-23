@@ -126,9 +126,15 @@
 
 .about{
     text-align: center;
-    font-size: bold;
 }
 
 .about p{
     margin-top: 150px;
+    font-size: 13px;
+}
+
+.about p span{
+    font-size: 10px;
+    color: gray;
+    opacity: 0.3;
 }

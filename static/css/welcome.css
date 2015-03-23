@@ -1,3 +1,10 @@
+body{
+	background: #ddd url("/static/img/field.jpg") no-repeat top left;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
 a{
     text-decoration: none;
 }
