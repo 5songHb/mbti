@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}测试中{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/startbtn.css') }}">
+{%endblock%}
+
+{% block container %}
+<div class="row">
+    <div class="col-lg-12">
+        {% for question in questions %}
+        <div class="question">
+            <h2>{{ question['question'] }}</h2>
+            <p>{{ question.choice_a.value }}</p>
+            <p>{{ question.choice_a.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

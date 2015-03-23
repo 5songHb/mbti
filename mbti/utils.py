@@ -14,15 +14,24 @@ def get_questions():
     question1_txt = os.path.join(data_path, 'questions1.txt')
     question2_txt = os.path.join(data_path, 'questions2.txt')
     with open(question1_txt) as txt:
-        questions1 = [{'question': line.split()[0],
-                       'choice_a': line.split()[1],
-                       'choice_b': line.split()[2]}
-                      for line in txt]
+        questions1 = []
+        for line in txt:
+            question, choice_a, choice_b = line.decode('utf-8').split()
+            questions1.append({
+                'question': question,
+                'choice_a': {'value': choice_a[-1], 'text': choice_a[:-1]},
+                'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
+            })
+
     with open(question2_txt) as txt:
-        questions2 = [{'question': '在下列每一对词语中，哪一个词语更合你心意？',
-                       'choice_a': line.split()[0],
-                       'choice_b': line.split()[1]}
-                      for line in txt]
+        questions2 = []
+        for line in txt:
+            choice_a, choice_b = line.decode('utf-8').split()
+            questions2.append({
+                'question': '在下列每一对词语中，哪一个词语更合你心意？',
+                'choice_a': {'value': choice_a[-1], 'text': choice_a[:-1]},
+                'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
+            })
     questions = questions1 + questions2
     random.shuffle(questions)
     return questions
@@ -42,4 +51,5 @@ def get_result(answers):
 
 
 if __name__ == '__main__':
-    print get_result(['I', 'S', 'F', 'P'])
+    assert 'ISFP' == get_result(['I', 'S', 'F', 'P'])
+    assert len(get_questions()) == 93

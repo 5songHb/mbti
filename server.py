@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-from flask import (Flask, request, render_template)
+from __future__ import unicode_literals
+from flask import Flask
 from mbti import MBTI_BP
 
 SERVER = Flask(__name__)
