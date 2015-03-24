@@ -6,8 +6,8 @@
 
 {% block container %}
     {% for question in questions %}
-        <form class="ac-custom ac-radio ac-circle" autocomplete="off">
-            <h2>{{ question['question'] }}</h2>
+    <form class="ac-custom ac-radio ac-circle" autocomplete="off" style="display: {% if loop.index == 1 %}block{% else %}none{% endif %}">
+        <h2>{{ loop.index }}. {{ question['question'] }}</h2>
             <ul>
                 <li>
                     <input id="choice_a" name="answer" value="{{ question.choice_a.value }}" type="radio">
@@ -30,4 +30,5 @@
 
 {% block js %}
     <script src="{{ url_for('static', filename='js/svgcheckbx.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
 {% endblock %}
