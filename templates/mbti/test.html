@@ -1,20 +1,33 @@
 {% extends "base.html" %}
 {% block title %}测试中{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/startbtn.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/svgcheckbx.css') }}">
 {%endblock%}
 
 {% block container %}
-<div class="row">
-    <div class="col-lg-12">
-        {% for question in questions %}
-        <div class="question">
+    {% for question in questions %}
+        <form class="ac-custom ac-radio ac-circle" autocomplete="off">
             <h2>{{ question['question'] }}</h2>
-            <p>{{ question.choice_a.value }}</p>
-            <p>{{ question.choice_a.text }}</p>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+            <ul>
+                <li>
+                    <input id="choice_a" name="answer" value="{{ question.choice_a.value }}" type="radio">
+                        <label for="choice_a">
+                            {{ question.choice_a.text }}
+                        </label>
+                        <svg viewBox="0 0 100 100"></svg>
+                </li>
+                <li>
+                    <input id="choice_b" name="answer" value="{{ question.choice_b.value }}" type="radio">
+                        <label for="choice_b">
+                            {{ question.choice_b.text }}
+                        </label>
+                        <svg viewBox="0 0 100 100"></svg>
+                </li>
+            </ul>
+        </form>
+    {% endfor %}
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/svgcheckbx.js') }}"></script>
 {% endblock %}
