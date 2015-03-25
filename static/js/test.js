@@ -9,7 +9,7 @@ $(document).ready(function(){
             form.remove();
             next_form.css("display", "block");
         }, 520);
-        if (answers.length == 3){
+        if (answers.length == 93){
             $.post("/test/",
                    {"answers": JSON.stringify(answers)},
                    function(data){
