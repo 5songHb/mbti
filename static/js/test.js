@@ -8,6 +8,6 @@ $(document).ready(function(){
         setTimeout(function(){
             form.remove();
             next_form.css('display', 'block');
-        }, 550);
+        }, 520);
     });
 });
