@@ -43,6 +43,7 @@ def personalities(page):
 @MBTI_BP.route('/test/', methods=('GET', 'POST'))
 def test():
     '''测试页面视图'''
+    if request.is_xhr:
+        answers = request.values.get('answers')
     random.shuffle(QUESTIONS)
-
     return render_template('mbti/test.html', questions=QUESTIONS)
