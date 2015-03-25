@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 from __future__ import unicode_literals
 import random
+import json
 from flask import render_template
 from flask import Blueprint
 from flask import abort
@@ -44,6 +45,9 @@ def personalities(page):
 def test():
     '''测试页面视图'''
     if request.is_xhr:
-        answers = request.values.get('answers')
+        answers = json.loads(request.values.get('answers'))
+        print answers
+        result = get_result(answers)
+        return result.lower()
     random.shuffle(QUESTIONS)
     return render_template('mbti/test.html', questions=QUESTIONS)

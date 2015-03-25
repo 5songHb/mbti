@@ -12,7 +12,8 @@ $(document).ready(function(){
         if (answers.length == 93){
             $.post("/test/",
                    {"answers": JSON.stringify(answers)},
-                   function(data){
+                   function(page){
+                        window.location.href = '/personalities/' + page;
                    });
         };
     });
