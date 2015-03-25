@@ -1,7 +1,6 @@
 #-*- coding:utf-8 -*-
 from __future__ import unicode_literals
 import os
-import random
 from collections import Counter
 from more_itertools import flatten
 
@@ -33,7 +32,6 @@ def get_questions():
                 'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
             })
     questions = questions1 + questions2
-    random.shuffle(questions)
     return questions
 
 

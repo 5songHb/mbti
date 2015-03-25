@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 from __future__ import unicode_literals
+import random
 from flask import render_template
 from flask import Blueprint
 from flask import abort
@@ -42,5 +43,6 @@ def personalities(page):
 @MBTI_BP.route('/test/', methods=('GET', 'POST'))
 def test():
     '''测试页面视图'''
+    random.shuffle(QUESTIONS)
 
     return render_template('mbti/test.html', questions=QUESTIONS)
