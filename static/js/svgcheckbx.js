@@ -45,7 +45,7 @@ if( document.createElement('svg').getAttributeNS ) {
 	function controlCheckbox( el, type, svgDef ) {
 		var svg = createSVGEl( svgDef );
 		el.parentNode.appendChild( svg );
-		
+
 		el.addEventListener( 'change', function() {
 			if( el.checked ) {
 				draw( el, type );
@@ -75,7 +75,7 @@ if( document.createElement('svg').getAttributeNS ) {
 	checkbxsList.forEach( function( el ) { controlCheckbox( el, 'list', { viewBox : '0 0 300 100', preserveAspectRatio : 'none' } ); } );
 
 	function draw( el, type ) {
-		var paths = [], pathDef, 
+		var paths = [], pathDef,
 			animDef,
 			svg = el.parentNode.querySelector( 'svg' );
 
@@ -89,13 +89,13 @@ if( document.createElement('svg').getAttributeNS ) {
 			case 'diagonal': pathDef = pathDefs.diagonal; animDef = animDefs.diagonal; break;
 			case 'list': pathDef = pathDefs.list; animDef = animDefs.list; break;
 		};
-		
+
 		paths.push( document.createElementNS('http://www.w3.org/2000/svg', 'path' ) );
 
 		if( type === 'cross' || type === 'list' ) {
 			paths.push( document.createElementNS('http://www.w3.org/2000/svg', 'path' ) );
 		}
-		
+
 		for( var i = 0, len = paths.length; i < len; ++i ) {
 			var path = paths[i];
 			svg.appendChild( path );
@@ -126,7 +126,7 @@ if( document.createElement('svg').getAttributeNS ) {
 	}
 
 	function resetRadio( el ) {
-		Array.prototype.slice.call( document.querySelectorAll( 'input[type="radio"][name="' + el.getAttribute( 'name' ) + '"]' ) ).forEach( function( el ) { 
+		Array.prototype.slice.call( document.querySelectorAll( 'input[type="radio"][name="' + el.getAttribute( 'name' ) + '"]' ) ).forEach( function( el ) {
 			var path = el.parentNode.querySelector( 'svg > path' );
 			if( path ) {
 				path.parentNode.removeChild( path );
