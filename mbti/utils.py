@@ -10,30 +10,17 @@ ROOT_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 def get_questions():
     '''获取题目'''
     data_path = os.path.join(ROOT_PATH, 'data')
-    question1_txt = os.path.join(data_path, 'questions1.txt')
-    question2_txt = os.path.join(data_path, 'questions2.txt')
-    with open(question1_txt) as txt:
-        questions1 = []
+    question_txt = os.path.join(data_path, 'questions.txt')
+    questions = []
+    with open(question_txt) as txt:
         for line in txt:
             question, choice_a, choice_b = line.decode('utf-8').split()
-            questions1.append({
+            questions.append({
                 'question': question,
                 'choice_a': {'value': choice_a[-1], 'text': choice_a[:-1]},
                 'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
             })
-
-    with open(question2_txt) as txt:
-        questions2 = []
-        for line in txt:
-            choice_a, choice_b = line.decode('utf-8').split()
-            questions2.append({
-                'question': '在下列每一对词语中，哪一个词语更愿意接受或喜欢？',
-                'choice_a': {'value': choice_a[-1], 'text': choice_a[:-1]},
-                'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
-            })
-    questions = questions1 + questions2
     return questions
-
 
 def get_result(answers):
     '''计算测试结果
@@ -51,4 +38,4 @@ def get_result(answers):
 
 if __name__ == '__main__':
     assert 'ISFP' == get_result(['I', 'S', 'F', 'P'])
-    assert len(get_questions()) == 93
+    assert len(get_questions()) == 72
