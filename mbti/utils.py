@@ -27,7 +27,7 @@ def get_questions():
         for line in txt:
             choice_a, choice_b = line.decode('utf-8').split()
             questions2.append({
-                'question': '在下列每一对词语中，哪一个词语更合你心意？',
+                'question': '在下列每一对词语中，哪一个词语更愿意接受或喜欢？',
                 'choice_a': {'value': choice_a[-1], 'text': choice_a[:-1]},
                 'choice_b': {'value': choice_b[-1], 'text': choice_b[:-1]}
             })
