@@ -7,7 +7,7 @@
 }
 
 .ac-custom {
-    margin-top: 180px;
+    margin-top: 220px;
     padding-left:80px;
 }
 
@@ -34,7 +34,7 @@
 	display: inline-block;
 	position: relative;
 	font-size: 2em;
-	padding: 0 0 0 80px;
+	padding: 0 0 0 60px;
 	vertical-align: top;
 	color: rgba(0,0,0,0.5);
 	cursor: pointer;
