@@ -22,6 +22,7 @@ def get_questions():
             })
     return questions
 
+
 def get_result(answers):
     '''计算测试结果
     E-I S-N T-F J-P
@@ -35,6 +36,27 @@ def get_result(answers):
                      for t1, t2 in types)
     return result
 
+
+def get_types(page):
+    if page == 'index':
+        return [
+            {'type': 'ISTJ', 'desc': ''},
+            {'type': 'ISFJ', 'desc': ''},
+            {'type': 'ISTP', 'desc': ''},
+            {'type': 'ISFJ', 'desc': ''},
+            {'type': 'INTJ', 'desc': ''},
+            {'type': 'INFJ', 'desc': ''},
+            {'type': 'INTP', 'desc': ''},
+            {'type': 'INFP', 'desc': ''},
+            {'type': 'ENTJ', 'desc': ''},
+            {'type': 'ENFJ', 'desc': ''},
+            {'type': 'ENTP', 'desc': ''},
+            {'type': 'ENFP', 'desc': ''},
+            {'type': 'ESTJ', 'desc': ''},
+            {'type': 'ESFJ', 'desc': ''},
+            {'type': 'ESTP', 'desc': ''},
+            {'type': 'ESFP', 'desc': ''},
+        ]
 
 if __name__ == '__main__':
     assert 'ISFP' == get_result(['I', 'S', 'F', 'P'])

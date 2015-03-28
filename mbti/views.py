@@ -8,6 +8,7 @@ from flask import abort
 from flask import request
 from utils import get_questions
 from utils import get_result
+from utils import get_types
 
 MBTI_BP = Blueprint('mbti', __name__)
 QUESTIONS = get_questions()
@@ -36,7 +37,8 @@ def about():
 def personalities(page):
     '''SHOW MBTI TYPES'''
     try:
-        return render_template('mbti/personalities/%s.html' % page)
+        types = get_types(page)
+        return render_template('mbti/personalities/%s.html' % page.lower(), types=types)
     except:
         abort(404)
 

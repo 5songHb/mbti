@@ -1,19 +1,56 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/personality-index.css') }}">
+<script src="{{ url_for('static', filename='js/snap.svg-min.js') }}"></script>
+{%endblock%}
 
+{% block container %}
+        <div class="pi">
+            <section id="grid" class="grid">
+                {% for type in types %}
+                <a href="#" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+                    <figure>
+                        <img src="/static/img/{{ loop.index % 8 + 1 }}.png" />
+                        <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
+                        <figcaption>
+                            <h2>{{ type.type }}</h2>
+                            <p>{{ type.desc }}</p>
+                            <button>点击查看详细介绍</button>
+                        </figcaption>
+                    </figure>
+                </a>
+                {% endfor %}
+            </section>
+        </div>
+{% endblock %}
+{% block js %}
+    <script>
+        (function() {
 
-http://tympanus.net/Tutorials/ShapeHoverEffectSVG/index2.html
-                                <li><a href="personalities/istj">ISTJ</a></li>
-                                <li><a href="personalities/isfj">ISFJ</a></li>
-                                <li><a href="personalities/istp">ISTP</a></li>
-                                <li><a href="personalities/isfp">ISFP</a></li>
-                                <li><a href="personalities/intj">INTJ</a></li>
-                                <li><a href="personalities/infj">INFJ</a></li>
-                                <li><a href="personalities/intp">INTP</a></li>
-                                <li><a href="personalities/infp">INFP</a></li>
-                                <li><a href="personalities/entj">ENTJ</a></li>
-                                <li><a href="personalities/enfj">ENFJ</a></li>
-                                <li><a href="personalities/entp">ENTP</a></li>
-                                <li><a href="personalities/enfp">ENFP</a></li>
-                                <li><a href="personalities/estj">ESTJ</a></li>
-                                <li><a href="personalities/esfj">ESFJ</a></li>
-                                <li><a href="personalities/estp">ESTP</a></li>
-                                <li><a href="personalities/esfp">ESFP</a></li>
+            function init() {
+                var speed = 330,
+                    easing = mina.backout;
+
+                [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+                    var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+                        pathConfig = {
+                            from : path.attr( 'd' ),
+                            to : el.getAttribute( 'data-path-hover' )
+                        };
+
+                    el.addEventListener( 'mouseenter', function() {
+                        path.animate( { 'path' : pathConfig.to }, speed, easing );
+                    } );
+
+                    el.addEventListener( 'mouseleave', function() {
+                        path.animate( { 'path' : pathConfig.from }, speed, easing );
+                    } );
+                } );
+            }
+
+            init();
+
+        })();
+    </script>
+{% endblock %}
