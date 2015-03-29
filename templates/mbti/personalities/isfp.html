@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block title %}ISFP{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
+{%endblock%}
+
+{% block container %}
+        <div id="article" class="article intro-effect-jam3">
+            <div class="header">
+                <div class="title">
+                    <h1>ISFP</h1>
+                    <p class="subline">Inspiration for Article Intro Effects</p>
+                    <p>by <strong>Christian M. Xavier</strong> &#8212; Posted in <strong>Society</strong> on <strong>May 19, 2014</strong></p>
+                </div>
+            </div>
+            <button class="trigger" data-info="Click Me"><span>Trigger</span></button>
+            <article class="content">
+                <div>
+                    <h3>From acid and rancidity</h3>
+                    <p>The better quality oils are quite as wholesome as the best fresh butter, and better than most butter as sold. Bread can be dipped into the oil, or a little solid vegetable fat spread on it. The author prefers to pour a little Peach-kernel oil upon some ground walnut kernels (or other ground nuts in themselves rich in oil), mix with a knife to a suitable consistency and spread upon the bread. Pine-kernels are very oily, and can be used in pastry in the place of butter or lard.</p>
+                    <blockquote>A comparatively small quantity of proteid matter, such as is easily obtained from vegetable food, is ample for the general needs of the body.</blockquote>
+                    <p><strong>Excerpt from: <a href="http://www.gutenberg.org/ebooks/15237">The Chemistry of Food and Nutrition</a> by A. W. Duncan</strong></p>
+                </div>
+            </article>
+        </div>
+
+{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+<script>
+    (function() {
+
+        // detect if IE : from http://stackoverflow.com/a/16657946
+        var ie = (function(){
+            var undef,rv = -1; // Return value assumes failure.
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE ');
+            var trident = ua.indexOf('Trident/');
+
+            if (msie > 0) {
+                // IE 10 or older => return version number
+                rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            } else if (trident > 0) {
+                // IE 11 (or newer) => return version number
+                var rvNum = ua.indexOf('rv:');
+                rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+            }
+
+            return ((rv > -1) ? rv : undef);
+        }());
+
+
+        // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+        function preventDefault(e) {
+            e = e || window.event;
+            if (e.preventDefault)
+            e.preventDefault();
+            e.returnValue = false;
+        }
+
+        function keydown(e) {
+            for (var i = keys.length; i--;) {
+                if (e.keyCode === keys[i]) {
+                    preventDefault(e);
+                    return;
+                }
+            }
+        }
+
+        function touchmove(e) {
+            preventDefault(e);
+        }
+
+        function wheel(e) {
+            // for IE
+            //if( ie ) {
+                //preventDefault(e);
+            //}
+        }
+
+        function disable_scroll() {
+            window.onmousewheel = document.onmousewheel = wheel;
+            document.onkeydown = keydown;
+            document.body.ontouchmove = touchmove;
+        }
+
+        function enable_scroll() {
+            window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+        }
+
+        var docElem = window.document.documentElement,
+            scrollVal,
+            isRevealed,
+            noscroll,
+            isAnimating,
+            container = document.getElementById( 'article' ),
+            trigger = container.querySelector( 'button.trigger' );
+
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        function scrollPage() {
+            scrollVal = scrollY();
+
+            if( noscroll && !ie ) {
+                if( scrollVal < 0 ) return false;
+                // keep it that way
+                window.scrollTo( 0, 0 );
+            }
+
+            if( classie.has( container, 'notrans' ) ) {
+                classie.remove( container, 'notrans' );
+                return false;
+            }
+
+            if( isAnimating ) {
+                return false;
+            }
+
+            if( scrollVal <= 0 && isRevealed ) {
+                toggle(0);
+            }
+            else if( scrollVal > 0 && !isRevealed ){
+                toggle(1);
+            }
+        }
+
+        function toggle( reveal ) {
+            isAnimating = true;
+
+            if( reveal ) {
+                classie.add( container, 'modify' );
+            }
+            else {
+                noscroll = true;
+                disable_scroll();
+                classie.remove( container, 'modify' );
+            }
+
+            // simulating the end of the transition:
+            setTimeout( function() {
+                isRevealed = !isRevealed;
+                isAnimating = false;
+                if( reveal ) {
+                    noscroll = false;
+                    enable_scroll();
+                }
+            }, 600 );
+        }
+
+        // refreshing the page...
+        var pageScroll = scrollY();
+        noscroll = pageScroll === 0;
+
+        disable_scroll();
+
+        if( pageScroll ) {
+            isRevealed = true;
+            classie.add( container, 'notrans' );
+            classie.add( container, 'modify' );
+        }
+
+        window.addEventListener( 'scroll', scrollPage );
+        trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+    })();
+</script>
+
+{% endblock %}
