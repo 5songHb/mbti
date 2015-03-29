@@ -45,7 +45,7 @@ def get_types_desc():
         for line in types:
             typ3, desc = line.decode('utf-8').split()
             types_desc[typ3] = desc
-    return types_desc
+    return sorted(types_desc.items(), key=lambda i: i[0])
 
 if __name__ == '__main__':
     assert 'ISFP' == get_result(['I', 'S', 'F', 'P'])

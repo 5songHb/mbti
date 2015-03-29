@@ -43,7 +43,7 @@ def personalities(page):
             types_desc = TYPES_DESC
         else:
             types_desc = TYPES_DESC.get(page)
-        return render_template('mbti/personalities/%s.html' % page, types=types_desc)
+        return render_template('mbti/personalities/%s.html' % page, types_desc=types_desc)
     except:
         abort(404)
 
