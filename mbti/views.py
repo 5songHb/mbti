@@ -15,7 +15,6 @@ QUESTIONS = get_questions()
 TYPES_DESC = get_types_desc()
 
 @MBTI_BP.route('/')
-@MBTI_BP.route('/welcome/')
 def welcome():
     '''欢迎页面，纯属装逼'''
     return render_template('mbti/welcome.html')
@@ -41,9 +40,9 @@ def personalities(page):
         page = page.lower()
         if page == 'index':
             types_desc = TYPES_DESC
+            return render_template('mbti/personalities/index.html', types_desc=types_desc)
         else:
-            types_desc = TYPES_DESC.get(page)
-        return render_template('mbti/personalities/%s.html' % page, types_desc=types_desc)
+            return render_template('mbti/personalities/%s.html' % page)
     except:
         abort(404)
 
