@@ -49,6 +49,19 @@
         </div>
         <!--NAV BAR END-->
 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="flashes">
+                <ul class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endwith %}
+
         {% block container_top %}
         {% endblock %}
         <div class="container">

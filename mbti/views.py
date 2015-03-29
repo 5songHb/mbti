@@ -6,6 +6,7 @@ from flask import render_template
 from flask import Blueprint
 from flask import abort
 from flask import request
+from flask import flash
 from utils import get_questions
 from utils import get_result
 from utils import get_types_desc
@@ -51,8 +52,8 @@ def test():
     '''测试页面视图'''
     if request.is_xhr:
         answers = json.loads(request.values.get('answers'))
-        print answers
         result = get_result(answers)
+        flash('测试完成，你的性格分析结果为{}型'.format(result))
         return result.lower()
     random.shuffle(QUESTIONS)
     return render_template('mbti/test.html', questions=QUESTIONS)

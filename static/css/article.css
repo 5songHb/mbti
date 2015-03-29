@@ -10,25 +10,6 @@ html, body, .article, .header {
 	width: 100%;
 }
 
-.bg-img {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.bg-img img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	min-width: 100%;
-	min-height: 100%;
-}
 
 .title {
 	z-index: 1000;
@@ -147,11 +128,6 @@ button.trigger span::before {
 /* -------------------------- */
 /* Jam 3 */
 /* -------------------------- */
-.intro-effect-jam3:not(.notrans) .bg-img {
-	-webkit-transition-property: top, left, right, bottom;
-	transition-property: top, left, right, bottom;
-}
-
 .intro-effect-jam3:not(.notrans) .header h1,
 .intro-effect-jam3:not(.notrans) .header p {
 	-webkit-transition-property: color, opacity, -webkit-transform;
@@ -163,7 +139,6 @@ button.trigger span::before {
 	transition-property: opacity, transform;
 }
 
-.intro-effect-jam3:not(.notrans) .bg-img,
 .intro-effect-jam3:not(.notrans) .header h1,
 .intro-effect-jam3:not(.notrans) .codrops-top a,
 .intro-effect-jam3:not(.notrans) .codrops-demos a,
@@ -192,27 +167,13 @@ button.trigger span::before {
 	padding: 45px 30px;
 }
 
-.intro-effect-jam3 .bg-img {
-	top: -45px;
-	right: -30px;
-	bottom: -45px;
-	left: -30px;
-	background: #514753;
-}
-
-.intro-effect-jam3.modify .bg-img {
-	top: 0;
-	right: 0;
-	bottom: 85%;
-	left: 0;
-}
 
 .intro-effect-jam3.modify .header h1 {
-	color: #514753;
+	color: #000;
 }
 
 .intro-effect-jam3 .header p {
-	color: #514753;
+	color: #000;
 	opacity: 0;
 	-webkit-transform: translateY(150px);
 	transform: translateY(150px);
