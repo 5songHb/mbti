@@ -8,10 +8,11 @@ from flask import abort
 from flask import request
 from utils import get_questions
 from utils import get_result
-from utils import get_types
+from utils import get_types_desc
 
 MBTI_BP = Blueprint('mbti', __name__)
 QUESTIONS = get_questions()
+TYPES_DESC = get_types_desc()
 
 @MBTI_BP.route('/')
 @MBTI_BP.route('/welcome/')
@@ -37,8 +38,12 @@ def about():
 def personalities(page):
     '''SHOW MBTI TYPES'''
     try:
-        types = get_types(page)
-        return render_template('mbti/personalities/%s.html' % page.lower(), types=types)
+        page = page.lower()
+        if page == 'index':
+            types_desc = TYPES_DESC
+        else:
+            types_desc = TYPES_DESC.get(page)
+        return render_template('mbti/personalities/%s.html' % page, types=types_desc)
     except:
         abort(404)
 
