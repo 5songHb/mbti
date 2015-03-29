@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}留言板{% endblock %}
 {% block container %}
+<!--微信二维码 start-->
+<div class="qr" align="center" style="margin-top:100px;">
+    <img width="200px" height="200px" src="{{ url_for('static', filename='img/qr.png') }}">
+</div>
+<!--微信二维码 end-->
+
 <!-- 多说评论框 start -->
     <div class="ds-thread" data-thread-key="messageboards" data-title="留言板" data-url="http://mbti.axiaoxin.com/messageboard/"></div>
 <!-- 多说评论框 end -->
