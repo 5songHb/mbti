@@ -57,3 +57,9 @@ def test():
         return result.lower()
     random.shuffle(QUESTIONS)
     return render_template('mbti/test.html', questions=QUESTIONS)
+
+
+@MBTI_BP.route('/messageboards/')
+def messageboards():
+    '''deer要求的留言板，偷懒用多说算了'''
+    return render_template('mbti/duoshuo.html')
