@@ -6,7 +6,7 @@ html, body, .article, .header {
 .header {
 	position: relative;
 	margin: 0 auto;
-	min-height: 560px;
+	min-height: 230px;
 	width: 100%;
 }
 

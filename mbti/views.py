@@ -39,8 +39,7 @@ def personalities(page):
     try:
         page = page.lower()
         if page == 'index':
-            types_desc = TYPES_DESC
-            return render_template('mbti/personalities/index.html', types_desc=types_desc)
+            return render_template('mbti/personalities/index.html', types_desc=TYPES_DESC)
         else:
             return render_template('mbti/personalities/%s.html' % page)
     except:
