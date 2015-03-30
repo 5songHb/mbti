@@ -140,8 +140,6 @@ button.trigger span::before {
 }
 
 .intro-effect-jam3:not(.notrans) .header h1,
-.intro-effect-jam3:not(.notrans) .codrops-top a,
-.intro-effect-jam3:not(.notrans) .codrops-demos a,
 .intro-effect-jam3:not(.notrans) .content > div {
 	-webkit-transition-duration: 0.5s;
 	transition-duration: 0.5s;
@@ -164,7 +162,9 @@ button.trigger span::before {
 }
 
 .intro-effect-jam3.article {
-	padding: 45px 30px;
+	padding-top: 120px;
+    font-size: 16px;
+    color: #000;
 }
 
 
