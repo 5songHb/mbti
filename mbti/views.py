@@ -1,19 +1,17 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 from __future__ import unicode_literals
-import random
+
 import json
-from flask import render_template
-from flask import Blueprint
-from flask import abort
-from flask import request
-from flask import flash
-from utils import get_questions
-from utils import get_result
-from utils import get_types_desc
+import random
+
+from flask import Blueprint, abort, flash, render_template, request
+
+from utils import get_questions, get_result, get_types_desc
 
 MBTI_BP = Blueprint('mbti', __name__)
 QUESTIONS = get_questions()
 TYPES_DESC = get_types_desc()
+
 
 @MBTI_BP.route('/')
 def welcome():
@@ -40,7 +38,8 @@ def personalities(page):
     try:
         page = page.lower()
         if page == 'index':
-            return render_template('mbti/personalities/index.html', types_desc=TYPES_DESC)
+            return render_template('mbti/personalities/index.html',
+                                   types_desc=TYPES_DESC)
         else:
             return render_template('mbti/personalities/%s.html' % page)
     except:
