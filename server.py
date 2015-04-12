@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 from flask import Flask, render_template
-
 from mbti import MBTI_BP
 
 SERVER = Flask(__name__)
@@ -18,6 +17,7 @@ def page_not_found(error):
 @SERVER.errorhandler(500)
 def server_error(error):
     return render_template('500.html'), 500
+
 
 SERVER.register_blueprint(MBTI_BP)
 
